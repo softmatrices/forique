@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 
-const oliver = localFont({
-  src: "../public/fonts/Oliver-Regular.ttf",
-  variable: "--font-oliver",
-  display: "swap",
-});
+// const oliver = localFont({
+//   src: "../public/fonts/Oliver-Regular.ttf",
+//   variable: "--font-oliver",
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "Forique | Unique for You",
@@ -34,7 +34,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className={`min-h-screen flex flex-col antialiased ${oliver.variable}`}>
+      <body className={`min-h-screen flex flex-col antialiased`}>
         {children}
       </body>
     </html>
