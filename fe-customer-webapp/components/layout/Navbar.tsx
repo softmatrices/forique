@@ -55,7 +55,14 @@ export default function Navbar() {
 
                         {/* Logo - Centered on mobile */}
                         <Link href="/" className="absolute left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
-                            <span className="font-oliver text-3xl md:text-4xl text-foreground">Forique</span>
+                            <Image
+                                src="/logo.png"
+                                alt="Forique"
+                                width={200}
+                                height={60}
+                                className="h-10 md:h-14 w-auto"
+                                priority
+                            />
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -188,7 +195,13 @@ export default function Navbar() {
                             >
                                 <div className="p-6">
                                     <div className="flex items-center justify-between mb-10">
-                                        <span className="font-oliver text-3xl text-foreground">Forique</span>
+                                        <Image
+                                            src="/logo.png"
+                                            alt="Forique"
+                                            width={160}
+                                            height={48}
+                                            className="h-10 w-auto"
+                                        />
                                         <button
                                             onClick={() => setIsMobileMenuOpen(false)}
                                             className="p-2 text-muted hover:text-foreground"

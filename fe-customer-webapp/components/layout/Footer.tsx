@@ -66,7 +66,13 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="inline-block mb-4">
-                            <span className="font-oliver text-4xl text-foreground">Forique</span>
+                            <Image
+                                src="/logo.png"
+                                alt="Forique"
+                                width={180}
+                                height={54}
+                                className="h-12 w-auto"
+                            />
                         </Link>
                         <p className="text-sm text-muted mb-6 max-w-xs">
                             Unique for you. Curated jewelry from trusted artisans across India.
