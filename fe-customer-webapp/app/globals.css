@@ -1,0 +1,532 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Modern Coral Beauty */
+  --color-primary: #e11d48;
+  --color-primary-light: #fb7185;
+  --color-primary-dark: #be123c;
+  --color-accent: #fda4af;
+  --color-accent-warm: #fecdd3;
+  --color-accent-rose: #fff1f2;
+  --color-surface: #ffffff;
+  --color-surface-muted: #fafafa;
+  --color-background: #ffffff;
+  --color-foreground: #0f0f0f;
+  --color-muted: #737373;
+  --color-muted-foreground: #a3a3a3;
+  --color-border: #e5e5e5;
+
+  /* Fonts - Clean & Modern */
+  --font-serif: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
+
+  /* Shadows - Subtle & Clean */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-elegant: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-glow: 0 0 32px rgba(225, 29, 72, 0.08);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -200% 0;
+  }
+
+  to {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    isolation: isolate;
+  }
+
+  main {
+    position: relative;
+    z-index: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-muted);
+  }
+}
+
+@layer components {
+
+  /* Elegant Buttons - Minimal & Sleek */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    border-radius: 9999px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--color-foreground);
+    color: white;
+    border: none;
+  }
+
+  .btn-primary:hover {
+    background-color: #262626;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--color-foreground);
+    border: 1.5px solid var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-foreground);
+    background-color: var(--color-surface-muted);
+  }
+
+  .btn-secondary:focus-visible {
+    outline: 2px solid var(--color-foreground);
+    outline-offset: 2px;
+  }
+
+  .btn-secondary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-muted);
+    border: none;
+    padding: 0.625rem 1rem;
+  }
+
+  .btn-ghost:hover {
+    color: var(--color-foreground);
+    background-color: var(--color-surface-muted);
+  }
+
+  .btn-accent {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--color-accent);
+    color: var(--color-foreground);
+    border: none;
+  }
+
+  .btn-accent:hover {
+    background-color: var(--color-accent-warm);
+  }
+
+  /* Minimal Input */
+  .input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background-color: var(--color-surface);
+    border: 1.5px solid var(--color-border);
+    border-radius: 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--color-foreground);
+    transition: all 0.2s ease;
+  }
+
+  .input::placeholder {
+    color: var(--color-muted);
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 29, 110, 0.06);
+  }
+
+  /* Minimal Card */
+  .card {
+    background-color: var(--color-surface);
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s ease;
+  }
+
+  .card:hover {
+    border-color: var(--color-muted-foreground);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-elevated {
+    box-shadow: var(--shadow-soft);
+    border: none;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  /* Section Container */
+  .section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (min-width: 480px) {
+    .section {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .container-custom {
+    max-width: 76rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .container-custom {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Minimal Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    line-height: 1;
+  }
+
+  .badge-primary {
+    background-color: var(--color-foreground);
+    color: white;
+  }
+
+  .badge-accent {
+    background-color: var(--color-surface-muted);
+    color: var(--color-foreground);
+  }
+
+  /* Elegant Link Underline */
+  .link-underline {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Product Card - Minimal */
+  .product-card {
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  .product-card:hover {
+    box-shadow: none;
+    border: none;
+  }
+
+  .product-card-image {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 1rem;
+  }
+
+  .product-card:hover .product-card-image {
+    transform: scale(1.03);
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(26, 22, 37, 0.5);
+    backdrop-filter: blur(8px);
+    z-index: 40;
+  }
+
+  /* Glass Effect */
+  .glass {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Focus Ring */
+  .focus-ring:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Skeleton */
+  .skeleton {
+    background: linear-gradient(90deg,
+        var(--color-surface-muted) 0%,
+        var(--color-border) 50%,
+        var(--color-surface-muted) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .aspect-product {
+    aspect-ratio: 4/5;
+  }
+
+  .aspect-banner {
+    aspect-ratio: 21/9;
+  }
+
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}

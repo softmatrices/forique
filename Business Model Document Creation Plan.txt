@@ -1,0 +1,445 @@
+﻿Forique: Strategic Blueprint, Product Architecture & Implementation Guide
+1. Executive Strategic Vision
+The digital commerce landscape for artificial and imitation jewelry is currently navigating a period of significant structural friction. While global demand for affordable, trend-driven accessories is projected to reach $27.85 billion by 2030, the market remains fragmented, characterized by inconsistent quality standards, redundant supply chains, and a deficit of consumer trust.1 Forique is conceived not merely as a transactional marketplace but as a trust-brokering infrastructure designed to resolve these endemic inefficiencies through a Hybrid Catalog Model and an Agentic Development Architecture.
+This report articulates the comprehensive business, product, and technical strategy for Forique. It posits that the traditional binary choice between "managed inventory" (high control, low scale) and "open marketplace" (low control, high scale) is insufficient for the jewelry vertical. Instead, Forique adopts a Centralized Product Master architecture for generic goods—leveraging the "Latch-on" mechanic popularized by Amazon and Flipkart—while simultaneously maintaining protected Brand Storefronts for artisanal creators.2 This dual approach maximizes liquidity for unbranded commodities while preserving brand equity for designers, directly addressing the legal and operational challenges highlighted in recent e-commerce jurisprudence regarding "passing off" and trademark infringement.4
+Furthermore, Forique distinguishes itself through its engineering methodology. By adopting Google Antigravity—an agent-first Integrated Development Environment (IDE)—the platform's development lifecycle is compressed. The engineering team transitions from writing imperative code to orchestrating autonomous AI agents via structured contexts like AGENTS.md. This shift allows for rapid iteration of complex features such as Visual Search deduplication and Real-time RTO (Return to Origin) prediction, fundamentally altering the economics of platform maintenance and feature velocity.5
+The following sections detail the strategic business model, granular functional requirements, and the technical blueprint required to execute this vision. The analysis integrates data on average order values (AOV), commission structures, and quality assurance benchmarks to construct a robust, scalable, and defensible platform ecosystem.
+________________
+2. Strategic Business Model & Market Architecture
+2.1 The Friction of Fragmentation: Market Analysis
+The imitation jewelry sector operates with distinct economic characteristics that differentiate it from fine jewelry and general fashion. The primary driver of consumption is "high-frequency, low-stakes" purchasing behavior, where the Average Order Value (AOV) in markets like India typically ranges between ₹800 and ₹1,200 ($10-$15).8 This low AOV imposes strict constraints on customer acquisition costs (CAC) and logistics expenses.
+A critical analysis of the current market reveals three primary friction points:
+1. Catalog Redundancy: A single generic design (e.g., "Gold-plated Jhumka") is often listed by hundreds of sellers as unique items, creating search pollution and decision paralysis for the consumer.10
+2. Trust Deficit: Consumers struggle to differentiate between high-quality plating (e.g., 1-micron gold plating) and inferior "flash plating" based solely on digital images. This leads to high return rates, which erode the thin margins inherent to the category.11
+3. Supply Chain Opacity: Unbranded goods, which constitute a significant portion of the market, often lack standardized identifiers (UPC/EAN), making inventory tracking and anti-counterfeiting measures difficult.13
+Forique addresses these by positioning itself as a Managed Marketplace. Unlike open bazaars (eBay, Etsy) where every listing is unique, or pure retailers (Zara) that own inventory, Forique acts as the central arbiter of product data. It owns the "Product Master" record for generic goods, enforcing a "Single Source of Truth" that sellers must adhere to, thereby commoditizing the supply while elevating the customer experience through standardized attributes and quality guarantees.14
+2.2 The Hybrid Inventory Strategy
+The strategic linchpin of Forique is the Hybrid Inventory Model. This model acknowledges that the jewelry market is bifurcated into "Commodity Styles" (trends that are mass-manufactured) and "Creator Designs" (unique, IP-protected pieces). Attempting to treat these two categories with a single logic is a primary cause of failure for vertical marketplaces.
+2.2.1 The "Latch-On" Track (Commodity Liquidity)
+For unbranded or white-label goods, Forique utilizes a centralized catalog system similar to Amazon's ASIN or Flipkart's FSN structure.3
+* Mechanism: When a seller attempts to list a generic product (e.g., "Plain Gold Hoop"), the system utilizes AI-driven Visual Search algorithms to detect if the product already exists in the master database.17
+* Action: If a match is found, the seller is prompted to "Latch On" to the existing listing rather than creating a duplicate. They simply input their price and stock level.
+* Benefit: This aggregates liquidity. Instead of 50 separate pages for the same hoop earring, there is one page with 50 sellers competing for the "Buy Box." This competition drives down prices for consumers and ensures that the best-performing sellers (based on speed, rating, and price) capture the volume.19
+* Risk Mitigation: To prevent the "counterfeit variance" problem—where a seller latches on with an inferior version of the product—Forique implements a "Test Buy" protocol and strict attribute mapping (e.g., mandating base metal disclosure).12
+2.2.2 The "Brand Gating" Track (IP Protection)
+For designers and established brands, the "Latch-On" model poses a threat to brand equity. Therefore, Forique implements a rigorous Brand Gating architecture.
+* Mechanism: Sellers with registered trademarks undergo a "Brand Registry" process during onboarding. This grants them exclusive control over their product detail pages (PDPs).4
+* Protection: The system systematically blocks unauthorized sellers from latching onto these gated ASINs. Unauthorized attempts trigger a "Request Approval" workflow, where the brand owner can grant or deny distribution rights.
+* Legal Context: This structure is essential to comply with evolving e-commerce jurisprudence, such as the Delhi High Court's rulings on "passing off," which mandate that platforms must prevent third-party sellers from riding on the goodwill of established brands.3
+2.3 Business Model Canvas & Monetization
+Forique’s revenue architecture is designed to capture value at multiple stages of the commerce lifecycle, leveraging the high-volume nature of the category.
+
+
+Revenue Stream
+	Mechanism & Strategy
+	Market Benchmark Context
+	Transaction Commission
+	A percentage fee on the Gross Merchandise Value (GMV) of every sale. The rate is dynamic: 5-10% for high-value semi-precious items to encourage supply, and 15-22% for fashion jewelry where platform discovery adds significant value.
+	Aligns with industry standards (Amazon India ~22% for fashion jewelry, Flipkart ~4-20%).23
+	Logistics & Fulfillment
+	"Forique Fulfilled" charges for storage, picking, packing, and last-mile delivery. This is not just a revenue center but a strategic lever to control the customer experience and reduce RTO.
+	Essential for mitigating the high RTO rates (15-20%) prevalent in Indian e-commerce.25
+	Advertising (Sponsored Products)
+	A bidding model for "Sponsored" placement in search results and category pages. This allows new sellers to "buy" visibility in the Buy Box rotation.
+	Highly effective in catalog-based models where organic visibility is competitive.27
+	SaaS & Data Services
+	Premium subscriptions for sellers offering advanced analytics: "Trend Spotting" reports (e.g., "Oxidized Silver demand up 40% in Bangalore") and automated repricing tools.
+	Monetizes the data exhaust generated by the platform.28
+	2.4 Competitive Differentiation Strategy
+While generalist marketplaces (Amazon, Flipkart) rely on sheer volume, Forique differentiates through Vertical Depth.
+* Attribute Richness: Unlike generic platforms that treat jewelry as "Apparel," Forique’s database schema enforces jewelry-specific attributes: Plating Thickness (Microns), Base Metal (Brass vs. Alloy), and Stone Type (Polki vs. Kundan).12 This granularity powers precise filtering (e.g., "Show only Hypoallergenic / Nickel-Free").
+* Trust Architecture: The platform integrates a "Quality Assurance (QA) Intermediary" model for high-value items. Products sold above a certain price threshold are routed through a Forique QA hub for verification before reaching the customer, effectively eliminating the risk of counterfeits for premium goods.31
+________________
+3. Comprehensive Product Requirements Document (PRD)
+The Product Requirements Document (PRD) translates the strategic vision into concrete functional specifications. The platform is divided into three primary interfaces: the Customer App, the Brand (Seller) Panel, and the Admin (Operations) Panel.
+3.1 Module 1: The Centralized Catalog & Taxonomy Engine
+Strategic Goal: Eliminate redundancy and enforce data quality.
+The heart of Forique is the Catalog Management System. Unlike traditional systems that allow free-text entry, this module enforces a strict taxonomy.
+* Category Hierarchy: The system utilizes a deep, nested hierarchy (e.g., Jewelry > Earrings > Jhumkas > Oxidized Silver) to drive discovery.
+* Attribute Enforcement: Each leaf node in the category tree inherits specific mandatory attributes.
+   * Example: A product listed under "Gold Plated Chains" must define the "Base Metal" and "Plating Method" attributes. Failure to provide structured data results in rejection.30
+* Deduplication Logic: When a seller uploads an image, the system generates a vector embedding using a CLIP-based model.34 It queries the vector database (e.g., Pinecone/Milvus) for similarity.
+   * Scenario A (High Similarity > 95%): The system infers a match and prompts the seller to "Latch On" to the existing Product Master.
+   * Scenario B (Low Similarity): The system allows the creation of a new Product Master, subject to AI-assisted moderation to verify uniqueness.10
+3.2 Module 2: The "Latch-On" and Buy Box Algorithm
+Strategic Goal: Optimize liquidity and price competitiveness.
+This module governs how multiple sellers compete for a single product listing.
+* Seller Mapping: Sellers map their inventory to a unique Forique ID (FQID). This mapping process handles variants (e.g., size, color) to ensure that a "Red" variant isn't treated as a completely different product from a "Blue" one.20
+* Buy Box Logic: The algorithm determines which seller's offer is added to the cart when a user clicks "Buy Now." The scoring logic is a weighted function of:
+   1. Landed Price (40%): Product price + Shipping cost.
+   2. Fulfillment Speed (30%): Priority given to "Forique Fulfilled" inventory located closest to the buyer.
+   3. Seller Health (20%): Derived from Cancellation Rate, Return Rate, and Customer Ratings.19
+   4. Stock Consistency (10%): Historical ability to maintain inventory levels without stockouts.19
+3.3 Module 3: Visual Search & Discovery Experience
+Strategic Goal: Reduce search friction in a highly visual category.
+Jewelry shopping is often driven by visual inspiration rather than keyword intent.
+* Visual Search Engine: Users can upload a screenshot (e.g., from Instagram/Pinterest). The system identifies the jewelry within the image, segments it (separating earrings from necklaces), and queries the catalog for the nearest visual matches.17
+* "Complete the Look": Utilizing collaborative filtering and visual similarity, the PDP suggests matching items. If a user views a Kundan necklace, the system suggests matching Kundan earrings and Maang Tikkas, effectively increasing the Average Order Value (AOV) through bundling.38
+* Trust Badges: Dynamic badges are injected into the product card based on verified attributes: "Certified Plating," "Hypoallergenic," and "Verified Seller".2
+3.4 Module 4: Order Management & Logistics (RTO Mitigation)
+Strategic Goal: Protect margins by minimizing return logistics costs.
+Return to Origin (RTO) is the single largest profit leak in Indian e-commerce. This module aggressively manages this risk.
+* Address Intelligence: The system scores delivery addresses based on historical data. Addresses with a history of RTO or incomplete data (e.g., missing landmark) trigger a verification workflow.2
+* COD Verification: For Cash-on-Delivery orders, an automated IVR call or WhatsApp bot confirms the customer's intent to purchase before the order is dispatched.
+* Dispute Resolution Workflow: To handle the "Box Empty" or "Wrong Product" fraud, the system enforces a strict evidence-based claim process. Customers must upload unboxing videos or images within 48 hours of delivery to raise a dispute. The Admin panel provides tools for "Manual Overrides" and "Refund Wallet" credits to resolve legitimate issues quickly.2
+3.5 Module 5: Quality Assurance & Compliance
+Strategic Goal: Build long-term trust and brand equity.
+* Brand Onboarding: A rigorous KYC (Know Your Customer) process collects GSTIN, PAN, and Cancelled Cheques. For "Brand Gating," sellers must upload Trademark Certificates.2
+* Physical QA Checklists: For "Forique Fulfilled" items, warehouse staff utilize specific checklists:
+   * Visual: Check for scratches, dents, or asymmetry.
+   * Functional: Test clasp tension, earring post strength, and stone setting security.21
+   * Material: Random batch testing for nickel content (hypoallergenic compliance) and plating thickness verification.12
+________________
+4. Technical Architecture & Agentic Development Strategy
+Forique’s engineering strategy is defined by the adoption of Google Antigravity, an agentic IDE that fundamentally shifts the developer's role from "writer" to "orchestrator." This section details the technical blueprint required to support the business model while leveraging AI to accelerate delivery.
+4.1 The "Antigravity" Agentic Workflow
+Reference: Google Antigravity Architecture 5
+Traditional development involves manually writing boilerplate code. In the Antigravity paradigm, developers define the intent and constraints via artifacts, and autonomous agents execute the implementation.
+The "Mission Control" Interface:
+Developers interact with a dashboard that manages multiple agents. Instead of editing files directly, they issue high-level directives (e.g., "Refactor the Auth module to support OTP"). The agents generate Implementation Plans and Task Lists which the developer reviews before execution. This "Verify with Artifacts" model builds trust in the AI's output.6
+The AGENTS.md Context Protocol:
+To ensure agents understand the specific architectural constraints of Forique, the project root contains a rigorously maintained AGENTS.md file. This file acts as the "Constitution" for the AI agents.42
+Example AGENTS.md Structure for Forique:
+AGENTS.md - Forique Platform Context
+1. Project Identity & Persona
+You are a Senior Full-Stack Architect building 'Forique', a scalable B2C jewelry marketplace.
+Your code must be production-ready, type-safe, and optimized for high-concurrency e-commerce workloads.
+2. Technology Stack Constraints
+* Frontend: Next.js 16 (App Router), React Server Components (RSC) by default.
+* Styling: Tailwind CSS with Shadcn/UI. No custom CSS files unless necessary.
+* Backend: Node.js (NestJS) microservices or Serverless Functions via Next.js.
+* Database: PostgreSQL (Supabase). Use Prisma ORM.
+* Vector DB: Pinecone for visual search embeddings.
+3. Architecture Rules
+* Schema First: Always reference docs/SCHEMA.md before writing database queries.
+* Latch-On Logic: Never create a new Product Master without first checking for duplicates via the Visual Search API.
+* Security: All vendor data (KYC documents) must be stored in encrypted S3 buckets with signed URLs.
+4. Operational Boundaries
+* ✅ Always: Write unit tests (Jest) for every new utility function.
+* ⚠️ Ask First: Before modifying the database schema or adding new npm dependencies.
+* 🚫 Never: Hardcode API keys or secrets. Use .env.local.
+4.2 Application Stack & Data Schema
+Reference: Tech Stack for 2025 45, Database Schema 7
+Frontend (Next.js 16):
+The App Router architecture allows for granular caching and streaming, essential for loading media-heavy jewelry catalogs quickly. Server Components reduce the client-side JavaScript bundle, improving Core Web Vitals (LCP/INP) which are critical for SEO and mobile conversion.46
+Database Design (PostgreSQL):
+The schema must support the "One Master, Many Offers" logic.
+Entity
+	Description
+	Key Fields
+	product_masters
+	The "Single Source of Truth" for a product.
+	id (UUID), title, attributes (JSONB), vector_embedding (Array), brand_id (FK)
+	product_variants
+	Specific variations (e.g., Gold vs. Silver).
+	id, master_id (FK), sku, color, material, images (Array)
+	seller_offers
+	The actual inventory listing from a seller.
+	id, variant_id (FK), seller_id (FK), price, stock, fulfillment_type, is_buy_box_winner
+	orders
+	Transactional records.
+	id, user_id, status (Enum), payment_status, rto_risk_score
+	4.3 Visual Search Pipeline
+Reference: Visual Search API 18
+1. Ingestion: When a product image is uploaded via the Brand Panel, a background job (managed by Temporal.io) triggers the ingestion pipeline.
+2. Vectorization: The image is passed to a pre-trained CLIP (Contrastive Language-Image Pre-training) model. This model converts the visual features (shape, color, texture) into a high-dimensional vector (e.g., 512 dimensions).
+3. Indexing: This vector is stored in Pinecone or Milvus, indexed for fast Approximate Nearest Neighbor (ANN) search.
+4. Querying: When a user uploads a photo, it is vectorized using the same model. The system queries the Vector DB for the nearest neighbors (cosine similarity).
+5. Re-ranking: The raw visual matches are re-ranked based on business logic: Availability, Seller Rating, and Price. This ensures users don't just see "visually similar" items, but items they can actually buy from trusted sellers.34
+________________
+5. UX Flows & Design Strategy
+The User Experience (UX) of Forique focuses on reducing cognitive load and building trust through transparency. The design philosophy draws from the "Antigravity" concept—making complex interactions feel weightless and seamless.
+5.1 UX Flow: Seller "Latch-On" Listing
+Objective: Allow a seller to list a generic product in under 30 seconds.
+1. Initiation: Seller logs into the Brand Panel and clicks "Add Product."
+2. Identification: Seller uploads a product image or scans a barcode (if available).
+3. Visual Match Analysis: The system displays a "Scanning..." animation while querying the Vector DB.
+4. Result Presentation:
+   * Match Found: The system displays the existing Product Master. "We found this product in our catalog. Sell yours here?"
+   * Context: It displays the current "Buy Box Price" (e.g., ₹499) and the "Lowest Offer" to guide pricing strategy.
+5. Configuration: Seller enters their specific details: Price, Stock Quantity, and SKU.
+6. Confirmation: Seller clicks "List Item." The offer is instantly live, competing for the Buy Box.
+5.2 UX Flow: Consumer Visual Discovery
+1. Trigger: User taps the "Camera" icon in the search bar.
+2. Capture/Upload: User takes a photo of a jewelry piece or selects a screenshot from their gallery.
+3. Crop & Focus: A UI overlay allows the user to crop the image to focus on the specific item (e.g., isolating earrings from a full-body portrait).
+4. Results Grid: The app displays a grid of visually similar products.
+   * Tags: Results are auto-tagged with attributes like "Gold Plated," "Kundan," or "Under ₹500" to allow further refinement.
+5. Conversion: User clicks a result to view the PDP, where "Complete the Look" suggestions encourage cross-selling.
+5.3 UX Flow: Brand Gating & Protection
+Objective: Prevent unauthorized selling of IP-protected goods.
+1. Attempt: A reseller attempts to "Latch On" to a product identified as belonging to a verified brand (e.g., "Voylla").
+2. Interception: The system detects the brand_id association on the Product Master.
+3. Restriction: A modal appears: "Restricted Product. This item belongs to a registered brand. You need authorization to sell this product."
+4. Resolution:
+   * Option A: "Request Approval" - Triggers a workflow sending a request to the Brand Owner.
+   * Option B: "This is a different product" - Seller is redirected to the "Create New Product" flow, where they must provide unique identifiers and images to prove it is not a counterfeit.
+________________
+6. Strategic Roadmap & Implementation Phases
+The rollout of Forique is structured to minimize risk while progressively building the "flywheel" of supply and demand.
+Phase 1: Foundation & "Managed" Supply (Months 1-3)
+* Objective: Launch a functional MVP with high-quality, controlled inventory.
+* Technical Milestones:
+   * Deploy Customer App (Next.js) and basic Brand Panel.
+   * Implement "Product Master" schema (Manual entry only).
+   * Integrate Payment Gateways (Razorpay/Stripe) and basic Logistics (Shiprocket).
+* Business Strategy: Invite-only onboarding for 50-100 high-quality vendors. No "Latch-on" feature yet; all listings are curated to set the quality baseline.
+Phase 2: The "Marketplace" Engine (Months 4-6)
+* Objective: Scale supply liquidity and automate cataloging.
+* Technical Milestones:
+   * Launch Visual Search Deduplication and "Latch-On" workflow.
+   * Deploy Buy Box Algorithm to handle multi-seller competition.
+   * Implement Bulk Upload Tools (Excel/CSV mapping) for wholesalers.
+* Business Strategy: Open onboarding for resellers. Aggressive marketing to recruit Tier-2 city sellers.
+Phase 3: Trust, Scale & Intelligence (Months 7-9)
+* Objective: Optimize operations and enforce quality at scale.
+* Technical Milestones:
+   * Brand Gating Portal: Self-serve trademark verification.
+   * RTO Prediction Model: AI fraud detection API integration.
+   * Advanced Analytics Dashboard: Seller tools for trend analysis.
+* Business Strategy: Monetization via "Sponsored Products" ads. Launch of "Forique Fulfilled" warehousing to improve delivery speeds.
+Phase 4: Ecosystem Expansion (Months 10-12)
+* Objective: Deepen engagement and expand market reach.
+* Technical Milestones:
+   * Virtual Try-On (AR): WebGL/Three.js integration for earrings/necklaces.
+   * Social Commerce: "Live Selling" integration and influencer affiliate tracking.
+   * Global Currency Support: Multi-currency checkout for international expansion.
+________________
+7. Operational KPIs & Success Metrics
+To ensure the platform's health and growth, specific Key Performance Indicators (KPIs) must be tracked rigorously.
+Metric Category
+	KPI
+	Definition
+	Year 1 Target
+	Financial
+	GMV
+	Gross Merchandise Value.
+	$5 Million
+	
+
+	AOV
+	Average Order Value.
+	₹1,000 - ₹1,200
+	
+
+	Take Rate
+	Blended Commission + Fees / GMV.
+	15%
+	Marketplace
+	Latch-On Rate
+	% of listings mapped to existing Master SKUs.
+	> 60% (High liquidity)
+	
+
+	Buy Box Share
+	% of sales captured by the Buy Box winner.
+	> 90%
+	
+
+	Seller Retention
+	% of sellers active after 3 months.
+	> 70%
+	Operational
+	RTO %
+	Return to Origin / Total Orders.
+	< 15%
+	
+
+	Catalog Health
+	% of listings with complete mandatory attributes.
+	> 95%
+	Technical
+	Visual Search Latency
+	Time to return search results.
+	< 200ms
+	
+
+	Page Load (LCP)
+	Largest Contentful Paint (Core Web Vital).
+	< 1.5s
+	________________
+8. Diagrams
+8.1 Sequence Diagram: The "Latch-On" Listing Workflow
+This diagram illustrates the critical flow of deduplicating inventory using Visual Search.
+
+
+Code snippet
+
+
+
+
+sequenceDiagram
+   participant Seller
+   participant UI as Brand Panel
+   participant API as Catalog Service
+   participant VS as Visual Search Engine (Vector DB)
+   participant DB as Product Master DB
+
+   Seller->>UI: Upload Product Image & Title
+   UI->>API: POST /check-uniqueness
+   API->>VS: Send Image Embedding (CLIP)
+   VS-->>API: Return Top Matches (Cosine Similarity Score)
+   
+   alt Match Found (>90% Similarity)
+       API-->>UI: Return "Existing Product Found" (ProductMaster Object)
+       UI->>Seller: Display "Sell Yours" Prompt with Buy Box Context
+       Seller->>UI: Input Price, Stock, SKU
+       UI->>API: POST /add-offer (VariantID, Price, Stock)
+       API->>DB: INSERT into seller_offers linked to variant_id
+       DB-->>API: Success
+       API-->>UI: Offer Active (Competing for Buy Box)
+   else No Match
+       API-->>UI: Return "No Match Found"
+       UI->>Seller: Prompt for Full Product Details (Attributes)
+       Seller->>UI: Fill Mandatory Attributes (Material, Plating)
+       UI->>API: POST /create-product
+       API->>DB: CREATE ProductMaster & ProductVariant
+       DB-->>API: Success
+       API-->>UI: New Listing Active (Seller is Owner)
+   end
+
+8.2 State Diagram: Order Fulfillment & RTO Management
+This diagram details the lifecycle of an order, focusing on the complex states involved in returns and disputes.
+
+
+Code snippet
+
+
+
+
+stateDiagram-v2
+   [*] --> Placed
+   Placed --> Verified: COD Confirmation / Payment Success
+   Verified --> Packed: Seller Packs Item
+   Packed --> Shipped: Handed to Logistics Partner
+   
+   state Shipped {
+       [*] --> InTransit
+       InTransit --> OutForDelivery
+       OutForDelivery --> Delivered
+       OutForDelivery --> DeliveryAttemptFailed
+       DeliveryAttemptFailed --> RTO_Initiated: 3 Failed Attempts
+   }
+
+   Delivered --> ReturnRequested: Customer Action (within 7 days)
+   ReturnRequested --> ReturnApproved: Admin/Auto Approval (Rule-based)
+   ReturnApproved --> ReturnPickedUp
+   
+   state ReturnProcessing {
+       ReturnPickedUp --> InTransitToSeller
+       InTransitToSeller --> DeliveredToSeller
+       DeliveredToSeller --> QualityCheck: Seller Verifies Return
+   }
+
+   QualityCheck --> Refunded: QC Pass
+   QualityCheck --> DisputeRaised: QC Fail (Damaged/Fake)
+   
+   RTO_Initiated --> ReturnedToSeller
+   ReturnedToSeller --> [*]
+   Refunded --> [*]
+   DisputeRaised --> AdminIntervention
+   AdminIntervention --> Refunded: Buyer Favored
+   AdminIntervention --> ClaimDenied: Seller Favored
+
+8.3 Class Diagram: Product Data Model
+This diagram visualizes the "One Master, Many Offers" schema structure.
+
+
+Code snippet
+
+
+
+
+classDiagram
+   class ProductMaster {
+       +UUID id
+       +String title
+       +String description
+       +String category_id
+       +UUID brand_id (Nullable)
+       +JSONB global_attributes
+       +getBestOffer()
+   }
+   
+   class ProductVariant {
+       +UUID id
+       +UUID master_id
+       +String sku_identifier
+       +JSONB specific_attributes (Color, Size)
+       +String images
+       +Float weight_gms
+   }
+   
+   class SellerOffer {
+       +UUID id
+       +UUID variant_id
+       +UUID seller_id
+       +Decimal price
+       +Int stock_quantity
+       +Int handling_time_days
+       +Enum condition (New/LikeNew)
+       +Boolean is_buy_box_winner
+   }
+
+   class BrandRegistry {
+       +UUID id
+       +String brand_name
+       +String trademark_number
+       +Boolean is_gated
+       +authorizeSeller(seller_id)
+   }
+
+   ProductMaster "1" *-- "many" ProductVariant : contains
+   ProductVariant "1" *-- "many" SellerOffer : has
+   BrandRegistry "1" --> "many" ProductMaster : owns
+
+9. Conclusion
+Forique represents a sophisticated evolution of the marketplace model, specifically engineered for the complexities of the imitation jewelry industry. By enforcing a Centralized Product Master catalog, the platform solves the critical issues of discovery and redundancy that plague generic marketplaces. Simultaneously, the Brand Gating architecture ensures that the platform remains a viable home for high-value creators, protecting them from the "race to the bottom" dynamics of open commodities.
+The adoption of Google Antigravity and Agentic Workflows provides a decisive operational advantage, allowing the engineering team to deploy complex features—like vector-based deduplication and real-time fraud detection—with a fraction of the traditional resource overhead. This technological foundation, combined with a robust business model focused on trust, transparency, and data monetization, positions Forique to capture significant market share in the rapidly growing digital jewelry sector. The roadmap outlined herein provides a clear, phased path from MVP to a dominant, scalable ecosystem.
+Works cited
+1. Global Imitation Jewellery Market – Industry Trends and Forecast to 2030, accessed on January 8, 2026, https://www.databridgemarketresearch.com/reports/global-imitation-jewellery-market
+2. Zeera_Module_Wise_FRD.docx
+3. “Latch on Listing” – Flipkart's sale Boosting Feature That Un-Intentionally Facilitates Trademark Passing Off - Quintess Law, accessed on January 8, 2026, https://quintesslaw.com/updates/latch-on-listing-flipkarts-sale-boosting-feature-that-un-intentionally-facilitates-trademark-passing-off/
+4. Does Latching on amount to Passing off?- Still searching for answers - SpicyIP, accessed on January 8, 2026, https://spicyip.com/2024/10/does-latching-on-amount-to-passing-off-still-searching-for-answers.html
+5. Google Antigravity Deep Dive. Why the era of manually piloting your… | by Josh English | Dec, 2025 | Medium, accessed on January 8, 2026, https://medium.com/@jengas/google-antigravity-deep-dive-a6895295f77f
+6. Getting Started with Google Antigravity, accessed on January 8, 2026, https://codelabs.developers.google.com/getting-started-google-antigravity
+7. Diving Into Spec-Driven Development With GitHub Spec Kit - Microsoft for Developers, accessed on January 8, 2026, https://developer.microsoft.com/blog/spec-driven-development-spec-kit
+8. E-Commerce Average Order Value – E-commerce Benchmarks | Speed Commerce, accessed on January 8, 2026, https://www.speedcommerce.com/insights/e-commerce-average-order-value-e-commerce-benchmarks/
+9. How Big is the Online Jewellery Market in India? - Mywisdomlane, accessed on January 8, 2026, https://www.mywisdomlane.com/how-big-is-the-online-jewellery-market-in-india/
+10. Remove duplicates from products catalog: product matching - Architecture for Growth, accessed on January 8, 2026, https://architectureforgrowth.com/remove-duplicates-from-products-catalog-product-matching/
+11. and Guide - Federal Trade Commission, accessed on January 8, 2026, https://www.ftc.gov/sites/default/files/documents/federal_register_notices/guides-metallic-watch-band-industry-and-guides-jewelry-industry-16-cfr-part-23/960530guidesforthemetallicwatchbandb.pdf
+12. Jewelry Quality Assurance Standards - Amazon Seller Central, accessed on January 8, 2026, https://sellercentral.amazon.com/help/hub/reference/external/201269180?locale=en-US
+13. Challenges And Solutions In Barcode Project Management - FasterCapital, accessed on January 8, 2026, https://fastercapital.com/topics/challenges-and-solutions-in-barcode-project-management.html/1
+14. (PDF) Conceptual Full-Vehicle Development supported by Integrated Computer-Aided Design Methods - ResearchGate, accessed on January 8, 2026, https://www.researchgate.net/publication/261682723_Conceptual_Full-Vehicle_Development_supported_by_Integrated_Computer-Aided_Design_Methods
+15. Product Data Mastery Simplified - Oracle, accessed on January 8, 2026, https://www.oracle.com/webfolder/s/dm/prod-data-mastery-simplified-ebook.pdf
+16. Understanding ASIN numbers: Your guide to Amazon's product identification system, accessed on January 8, 2026, https://sell.amazon.com/blog/what-is-an-asin
+17. AI-Powered Multi-Search for Jewelry E-Commerce | Image + Text Search - mirrAR, accessed on January 8, 2026, https://www.mirrar.com/blogs/jewelry-ecommerce-multi-search-ai
+18. Finding duplicate products using Google Vision API Product Search at Miinto. - Medium, accessed on January 8, 2026, https://medium.com/@jakubmiksa/finding-duplicate-products-using-google-vision-api-product-search-at-miinto-7147e8996099
+19. Navigating the Amazon Buy Box: Strategies for Success - Wiser Solutions, accessed on January 8, 2026, https://www.wiser.com/blog/hacking-amazons-buy-box-top-strategies-to-win-the-buy-box
+20. Remap listing to ASIN - Amazon Seller Central, accessed on January 8, 2026, https://sellercentral.amazon.com/help/hub/reference/external/GFXPN9K5RBL3LAWY
+21. How does Sobling do quality control for your jewelry？ 6 must steps to ensure you receive the best quality., accessed on January 8, 2026, https://sobling.jewelry/how-to-control-quality-in-production/
+22. How to build an online store in 5 steps - Sell on Amazon, accessed on January 8, 2026, https://sell.amazon.com/build-an-online-store
+23. Amazon Commission Rates in India (2026): Guide for Sellers - Shiprocket, accessed on January 8, 2026, https://www.shiprocket.in/blog/amazon-commission-rates-in-india/
+24. E-Commerce Seller Charges A Guide for Online Platforms 2025 - Brand Chanakya, accessed on January 8, 2026, https://brandchanakya.in/e-commerce-seller-charges-guide-online-platform/
+25. Start Selling Online on Flipkart Seller Hub, accessed on January 8, 2026, https://seller.flipkart.com/sell-online
+26. Amazon vs Flipkart vs Meesho 2025: Guide for Indian Sellers - Digital Dawn, accessed on January 8, 2026, https://www.digitaldawn.in/amazon-vs-flipkart-vs-meesho-best-platform-indian-sellers-2025/
+27. How to build an ecommerce tech stack that scales in 2025 - Linnworks, accessed on January 8, 2026, https://www.linnworks.com/blog/ecommerce-tech-stack-2025-build-the-right-tools-to-scale/
+28. Multi-Vendor Marketplace Analytics: KPIs, Reporting & Performance Optimization - Flxpoint, accessed on January 8, 2026, https://flxpoint.com/blog/multi-vendor-marketplace-analytics
+29. Business Model Canvas – Farfetch, accessed on January 8, 2026, https://lumosbusiness.com/business-model-canvas-farfetch/
+30. Jewelry product data guidelines - Amazon Seller Central, accessed on January 8, 2026, https://sellercentral.amazon.com/help/hub/reference/external/G4ABP6XDJAE6PZAV?locale=en-US
+31. Jewelry Manufacturing Inspections: Lab Testing & Quality Control Guide - QIMA Blog, accessed on January 8, 2026, https://blog.qima.com/inspection/jewelry-manufacturing-inspections
+32. Quality Assurance and Responsible Sourcing for Jewelry and Watches - UL Solutions, accessed on January 8, 2026, https://www.ul.com/services/quality-assurance-and-responsible-sourcing-jewelry-and-watches
+33. Product data specification - Google Merchant Center Help, accessed on January 8, 2026, https://support.google.com/merchants/answer/7052112?hl=en-GB
+34. LookSync: Large-Scale Visual Product Search System for AI-Generated Fashion Looks, accessed on January 8, 2026, https://arxiv.org/html/2511.00072v1
+35. Finding duplicate offers in the online marketplace catalogue using transformer based methods - Diva-portal.org, accessed on January 8, 2026, https://www.diva-portal.org/smash/get/diva2:1704885/FULLTEXT01.pdf
+36. Mapping Alias SKUs to a Single Product ID - Finale Inventory, accessed on January 8, 2026, https://www.finaleinventory.com/video/map-alias-skus
+37. All important information about Amazon Buy Box: seller performance, qualification and more - SELLERLOGIC, accessed on January 8, 2026, https://www.sellerlogic.com/en/blog/amazon-buy-box/
+38. The Ultimate Guide to Product Discovery for Jewelry Brands - Syte.ai, accessed on January 8, 2026, https://www.syte.ai/blog/product-discovery/guide-product-discovery-jewelry/
+39. Brand Approval On Flipkart Marketplace - Lyxel&Flamingo, accessed on January 8, 2026, https://lyxelandflamingo.com/blogs/third-party-marketplaces/brand-approval-on-flipkart-marketplace/
+40. How to Do Quality Control for Your Jewelry (Checklist) - Jewepiter, accessed on January 8, 2026, https://www.jewepiter.com/jewelry-quality-control-checklist/
+41. Google Antigravity Review: DeepMind's Agent-First Bet on Faster, Safer Software Development | Scalable Path, accessed on January 8, 2026, https://www.scalablepath.com/ai/google-antigravity-review
+42. AGENTS.md, accessed on January 8, 2026, https://agents.md/
+43. How to write a great agents.md: Lessons from over 2,500 repositories - The GitHub Blog, accessed on January 8, 2026, https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/
+44. AGENTS.md: The New Standard for AI Coding Assistants | by proflead - Medium, accessed on January 8, 2026, https://medium.com/@proflead/agents-md-the-new-standard-for-ai-coding-assistants-af72910928b6
+45. How to Build an Ecommerce Tech Stack in 2025 - Shopify, accessed on January 8, 2026, https://www.shopify.com/enterprise/blog/ecommerce-tech-stack
+46. Conversion Rate Optimization for Fashion Brands: 2026 Guide - Shopify, accessed on January 8, 2026, https://www.shopify.com/enterprise/blog/fashion-conversion-rate-optimization

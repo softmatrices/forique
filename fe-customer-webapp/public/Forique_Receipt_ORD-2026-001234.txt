@@ -1,0 +1,27 @@
+FORIQUE - ORDER RECEIPT
+========================
+Order ID: ORD-2026-001234
+Date: 2026-01-05
+Status: Delivered
+
+ITEMS:
+- Royal Kundan Jhumka Earrings (x1) - ₹2,499
+- Rose Gold Diamond Bracelet (x1) - ₹1,299
+
+DELIVERY ADDRESS:
+Priya Sharma
+203, Rose Apartment
+Bandra West
+Mumbai, Maharashtra - 400050
+Phone: +91 98765 43210
+
+PAYMENT SUMMARY:
+Subtotal: ₹3,798
+Shipping: Free
+Discount: -₹380
+------------------------
+Total: ₹3,418
+
+Payment Method: UPI
+
+Thank you for shopping with Forique!
