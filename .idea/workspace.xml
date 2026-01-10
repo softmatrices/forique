@@ -4,14 +4,132 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e076f58e-bf49-4e5e-9331-7b0f0ff0db73" name="Changes" comment="Initial project setup with customer webapp FE">
+    <list default="true" id="e076f58e-bf49-4e5e-9331-7b0f0ff0db73" name="Changes" comment="logo changed">
+      <change afterPath="$PROJECT_DIR$/documents/Business Model Document Creation Plan.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Business Model Document Creation Plan.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Customer App Development Specification.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Customer App Development Specification.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Forique Portal Technical Document Research.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Forique Portal Technical Document Research.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Zeera_Module_Wise_FRD.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(auth)/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(auth)/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/analytics/catalog/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/analytics/customers/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/analytics/gmv/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/analytics/orders/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/analytics/sellers/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/applications/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/applications/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/catalog/[id]/review/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/catalog/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/customers/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/disputes/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/disputes/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/orders/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/orders/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/sellers/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/sellers/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/(dashboard)/settings/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/components/layout/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/components/layout/Sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/eslint.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/next.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/file.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/globe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/celestial-necklace.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/crystal-jhumkas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/emerald-pendant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/infinity-ring.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/kundan-jhumka.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/pearl-ring.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/product-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/product-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/product-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/product-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/product-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/rose-gold-bracelet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/products/temple-bangles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/public/window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-admin-portal/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(auth)/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(auth)/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(auth)/onboarding/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/analytics/buybox/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/analytics/orders/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/analytics/products/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/analytics/revenue/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/inventory/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/orders/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/orders/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/payments/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/products/[id]/edit/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/products/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/products/new/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/products/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/(dashboard)/settings/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/globals.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/app/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/components/layout/Header.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/components/layout/Sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/eslint.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/next.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/postcss.config.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/file.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/globe.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/next.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/celestial-necklace.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/crystal-jhumkas.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/emerald-pendant.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/infinity-ring.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/kundan-jhumka.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/pearl-ring.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/product-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/product-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/product-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/product-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/product-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/rose-gold-bracelet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/products/temple-bangles.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/vercel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/public/window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe-seller-portal/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fe-customer-webapp/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business Model Document Creation Plan.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business Model Document Creation Plan.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer App Development Specification.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Customer App Development Specification.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Zeera_Module_Wise_FRD.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="repository" />
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767983199215</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="logo changed">
+      <option name="closed" value="true" />
+      <created>1767984678861</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1767984678861</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,6 +228,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial project setup with customer webapp FE" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial project setup with customer webapp FE" />
+    <MESSAGE value="logo changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="logo changed" />
   </component>
 </project>
